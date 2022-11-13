@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar.astro";
 import ContentWrapper from "../components/ContentWrapper.astro";
 import IndexPiece from "../components/IndexPiece.astro";
 import SignUp from "../components/SignUp.astro";
+import DropDown from "../components/DropDown.astro";
 const pieces = [
     {
         "title":"Enjoy on your TV.",
@@ -40,7 +41,24 @@ for(let i=0;i<pieces.length;i++)
     
     <ContentWrapper slot="content">
         {indices.map(i=>(
-            <IndexPiece even_odd={i%2==0? "even":"odd"} title={pieces[i].title} body={pieces[i].body}/> 
+            <IndexPiece even_odd={i%2==0? "even":"odd"} title={pieces[i].title} body={pieces[i].body} />
         ))}
+        <IndexPiece vertical={true} title="Frequently Asked Questions">
+            <DropDown title="What is Netflix?" body="test" number="1"/>
+            <DropDown title="What is Netflix?#2" body="test#2" number="2"/>
+        </IndexPiece>
     </ContentWrapper>
 </IndexLayout>
+
+<script>
+    const dropdowns = Array.from(document.getElementsByClassName("dropdown") );
+    if(dropdowns){
+        dropdowns.map(dropdown=>{
+            dropdown.addEventListener("click",()=>{
+                //Array.from(document.querySelectorAll(`#${dropdown.id} span`)).map(span=>span.classList.toggle("rotate"));
+                dropdown.lastElementChild.classList.toggle("hidden");
+                document.querySelectorAll(`#${dropdown.id} div`)[0].classList.toggle("rotate")
+            })
+        })
+    }
+</script>

@@ -1,0 +1,56 @@
+---
+export interface Props{
+    title:string;
+    body:string;
+    number:string;
+}
+const {title,body,number} = Astro.props;
+const dropdown_id = "dropdown"+number;
+const bar_id ="bar"+number;
+---
+<div class="dropdown" id={dropdown_id}>
+    <h1>
+        {title}
+        <div id={bar_id} class="bar">
+            <span id="span1" class="no_rotate"></span>
+            <span id="span2" class="no_rotate"></span>
+        </div>
+    </h1>
+    <main id="body" class="hidden">{body}</main>
+</div>
+<style>
+    .dropdown{
+        width: 50vw;
+        background-color: #303030;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    .hidden{
+        display: none;
+    }
+    h1{
+        display: flex;
+        justify-content: space-between;
+    }
+    .bar{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    .rotate{
+        transform: rotateZ(calc(45deg)) translateX(15px);
+    }
+    #span1{
+        width: 30px;
+        height: 4px;
+        border-radius: 15px;
+        background-color: white;
+    }
+    #span2{
+        width: 30px;
+        height: 4px;
+        border-radius: 15px;
+        transform: translateX(-33px) rotateZ(90deg);
+        background-color: white;
+    }
+</style>

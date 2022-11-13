@@ -1,0 +1,68 @@
+ @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+    .container{
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+        margin: auto 0;
+        min-height: 70vh;
+    }
+    .image_container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 50%;
+            flex-basis: 50%;
+        }
+    }
+    .odd,.even{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 50%;
+        main{
+            width: 70%;
+            font-size: 25px;
+        }
+    }
+    .even{
+        order: 0;
+    }
+    .odd{
+        order: 1;
+    }
+    .vertical{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        font-family: 'Dosis', sans-serif;
+        padding: 30px;
+    }
+    h2{
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+    @media only screen and (max-width:700px){
+        .container{
+            flex-direction: column;
+            min-height: 90vh;
+        }
+        .image_container img{
+            width: auto;
+            height: auto;
+        }
+        .odd{
+            order: 0;
+        }
+        .even{
+            order: 0;
+        }
+    }
