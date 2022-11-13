@@ -1,0 +1,51 @@
+---
+import Logo from './Logo.astro';
+export interface Props{
+    logoname:string;
+    links?: Array<string>;
+}
+let {logoname} = Astro.props;
+const {links=["Home","About","Services","Contact"]} = Astro.props;
+let indices = [];       //this will be used to get link pages for each link
+for(let i=0;i<links.length;i++){
+    indices.push(i);
+}
+const link_pages = links.map(link=>link.toLowerCase()+".html");
+---
+<nav class="navbar">
+    <Logo logoname={logoname}/>
+    <ul>
+        {
+            indices.map(i=>(
+                <li><a href={link_pages[i]}>{links[i]}</a></li>
+            ))
+        }
+    </ul>
+</nav>
+
+<style>
+    .navbar{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 15vh;
+    }
+    .navbar > ul{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    .navbar > ul > li{
+        list-style-type: none;
+        color: white;
+    }
+    .navbar > ul > li > a{
+        color: white;
+        text-decoration: none;
+    }
+    @media only screen and (max-width:450px){
+        .navbar{
+            flex-direction: column;
+        }
+    }
+</style>

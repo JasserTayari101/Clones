@@ -1,0 +1,46 @@
+---
+import IndexLayout from "../layouts/IndexLayout.astro";
+
+import NavBar from "../components/NavBar.astro";
+import ContentWrapper from "../components/ContentWrapper.astro";
+import IndexPiece from "../components/IndexPiece.astro";
+import SignUp from "../components/SignUp.astro";
+const pieces = [
+    {
+        "title":"Enjoy on your TV.",
+        "body":"Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.",
+    },
+    {
+        "title":"Download your shows to watch offline.",
+        "body":"Save your favorites easily and always have something to watch.",
+    },
+    {
+        "title":"Watch everywhere.",
+        "body":"Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.",
+    },
+    {
+        "title":"Create profiles for kids.",
+        "body":"Send kids on adventures with their favorite characters in a space made just for them—free with your membership.",
+    }
+]
+let indices = [];
+for(let i=0;i<pieces.length;i++)
+    indices.push(i)
+---
+<IndexLayout title="Netflix">
+    <NavBar slot="header" logoname="Netflix"/>
+    <ContentWrapper slot="header">
+        <div class="header-content">
+            <h1>Unlimited movies, TV shows, and more.</h1>
+            <h2>Watch anywhere. Cancel anytime.</h2>
+            <p>Ready to watch? Enter your email to create or restart your membership.</p>
+            <SignUp />
+        </div>
+    </ContentWrapper>
+    
+    <ContentWrapper slot="content">
+        {indices.map(i=>(
+            <IndexPiece even_odd={i%2==0? "even":"odd"} title={pieces[i].title} body={pieces[i].body}/> 
+        ))}
+    </ContentWrapper>
+</IndexLayout>
