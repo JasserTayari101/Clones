@@ -34,11 +34,20 @@ const dropdowns = [
         "title":"What is Netflix?#2",
         "body":"test2",
         "number":"2"
+    },
+    {
+        "title":"What is Netflix#3",
+        "body":"test3",
+        "number":""
     }
 ]
-let indices = [];
+let dropdown_indices = [];
+for(let i=0;i<dropdowns.length;i++)
+    dropdown_indices.push(i)
+
+let piece_indices = [];
 for(let i=0;i<pieces.length;i++)
-    indices.push(i)
+    piece_indices.push(i)
 ---
 <IndexLayout title="Netflix">
     <NavBar slot="header" logoname="Netflix"/>
@@ -52,12 +61,12 @@ for(let i=0;i<pieces.length;i++)
     </ContentWrapper>
     
     <ContentWrapper slot="content">
-        {indices.map(i=>(
+        {piece_indices.map(i=>(
             <IndexPiece even_odd={i%2==0? "even":"odd"} title={pieces[i].title} body={pieces[i].body} />
         ))}
         <IndexPiece vertical={true} title="Frequently Asked Questions">
-            {dropdowns.map(dropdown=>(
-                <DropDown title={dropdown.title} body={dropdown.body} number={dropdown.number}/>
+            {dropdown_indices.map(i=>(
+                <DropDown title={dropdowns[i].title} body={dropdowns[i].body} number={dropdowns[i].number}/>
             ))}
         </IndexPiece>
     </ContentWrapper>
