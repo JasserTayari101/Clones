@@ -24,6 +24,18 @@ const pieces = [
         "body":"Send kids on adventures with their favorite characters in a space made just for them—free with your membership.",
     }
 ]
+const dropdowns = [
+    {
+        "title": "What is Netflix?#1",
+        "body": "test#1",
+        "number":"1"
+    },
+    {
+        "title":"What is Netflix?#2",
+        "body":"test2",
+        "number":"2"
+    }
+]
 let indices = [];
 for(let i=0;i<pieces.length;i++)
     indices.push(i)
@@ -44,8 +56,9 @@ for(let i=0;i<pieces.length;i++)
             <IndexPiece even_odd={i%2==0? "even":"odd"} title={pieces[i].title} body={pieces[i].body} />
         ))}
         <IndexPiece vertical={true} title="Frequently Asked Questions">
-            <DropDown title="What is Netflix?" body="test" number="1"/>
-            <DropDown title="What is Netflix?#2" body="test#2" number="2"/>
+            {dropdowns.map(dropdown=>(
+                <DropDown title={dropdown.title} body={dropdown.body} number={dropdown.number}/>
+            ))}
         </IndexPiece>
     </ContentWrapper>
 </IndexLayout>
