@@ -28,17 +28,14 @@ const dropdowns = [
     {
         "title": "What is Netflix?#1",
         "body": "test#1",
-        "number":"1"
     },
     {
         "title":"What is Netflix?#2",
         "body":"test2",
-        "number":"2"
     },
     {
         "title":"What is Netflix#3",
         "body":"test3",
-        "number":""
     }
 ]
 let dropdown_indices = [];
@@ -66,7 +63,7 @@ for(let i=0;i<pieces.length;i++)
         ))}
         <IndexPiece vertical={true} title="Frequently Asked Questions">
             {dropdown_indices.map(i=>(
-                <DropDown title={dropdowns[i].title} body={dropdowns[i].body} number={dropdowns[i].number}/>
+                <DropDown title={dropdowns[i].title} body={dropdowns[i].body} number={i}/>
             ))}
         </IndexPiece>
     </ContentWrapper>
