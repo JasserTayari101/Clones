@@ -1,0 +1,36 @@
+---
+export interface Props{
+    category: string;
+}
+const {category} = Astro.props;
+---
+<div class="movie-list">
+    <h1>{category}</h1>
+    <div class="movies">
+        <slot />
+    </div>
+</div>
+
+<style>
+    .movie-list{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: space-around;
+        align-items: center;
+        overflow: auto;
+        min-width: 70vh;
+        background-color: black;
+        min-height: 50vh;
+    }
+    .movie-list > h1{
+        color: white;
+        font-size: 20px;
+    }
+    .movies{
+        display: flex;
+        flex-direction: row;
+        min-width: min-content;
+        gap: 0px;
+    }
+</style>

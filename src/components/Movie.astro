@@ -1,0 +1,28 @@
+---
+export interface Props{
+    name:string;
+    tags:Array<string>;
+    picurl:string;
+}
+const {name,tags,picurl} = Astro.props;
+---
+
+<div class="movie" style={"background-image: url("+picurl+");"}>
+    <h1>{name}</h1>
+    <small>{tags.join(",")}</small>
+</div>
+
+<style>
+    .movie{
+        width: 30vw;
+        height: 30vh;
+        color: rgb(221, 210, 210);
+        font-size: 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .movie:hover{
+        border: 3px solid grey;
+        transform: scale(1.2);
+    }
+</style>

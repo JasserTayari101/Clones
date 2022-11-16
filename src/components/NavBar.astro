@@ -5,7 +5,7 @@ export interface Props{
     links?: Array<string>;
 }
 let {logoname} = Astro.props;
-const {links=["Home","About","Services","Contact"]} = Astro.props;
+const {links=["Home","Explore","Contact"]} = Astro.props;
 let indices = [];       //this will be used to get link pages for each link
 for(let i=0;i<links.length;i++){
     indices.push(i);
@@ -17,7 +17,7 @@ const link_pages = links.map(link=>link.toLowerCase()+".html");
     <ul>
         {
             indices.map(i=>(
-                <li><a href={link_pages[i]}>{links[i]}</a></li>
+                <li><a href={links[i]=="Home"?"index.html":link_pages[i]}>{links[i]}</a></li>
             ))
         }
     </ul>
@@ -42,7 +42,11 @@ const link_pages = links.map(link=>link.toLowerCase()+".html");
     .navbar > ul > li > a{
         color: white;
         text-decoration: none;
+        transition: all .2s;
     }
+    .navbar > ul > li > a:hover{
+        color: red;
+    } 
     @media only screen and (max-width:700px){
         .navbar{
             flex-direction: column;

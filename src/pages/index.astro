@@ -46,8 +46,8 @@ let piece_indices = [];
 for(let i=0;i<pieces.length;i++)
     piece_indices.push(i)
 ---
-<IndexLayout title="Netflix">
-    <NavBar slot="header" logoname="Netflix"/>
+<IndexLayout title="Netflix-Home">
+    <NavBar slot="header" logoname="Netflix" /> 
     <ContentWrapper slot="header">
         <div class="header-content">
             <h1>Unlimited movies, TV shows, and more.</h1>
@@ -67,6 +67,9 @@ for(let i=0;i<pieces.length;i++)
             ))}
         </IndexPiece>
     </ContentWrapper>
+    <ContentWrapper slot="footer">
+        © <time class="time-now"></time> Netflix. All rights reserved.
+    </ContentWrapper>
 </IndexLayout>
 
 <script>
@@ -80,4 +83,13 @@ for(let i=0;i<pieces.length;i++)
             })
         })
     }
+    //-------------update year in .time-now classes--------------
+    const times = Array.from(document.querySelectorAll(".time-now") );
+    times.map(time=>{
+        const currentYear = new Date().getFullYear();
+        time.textContent = currentYear.toString();
+    })
 </script>
+<style>
+
+</style>

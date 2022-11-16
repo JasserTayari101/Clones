@@ -1,0 +1,74 @@
+---
+import IndexLayout from "../layouts/IndexLayout.astro";
+import NavBar from "../components/NavBar.astro";
+import ContentWrapper from "../components/ContentWrapper.astro";
+import MovieList from "../components/MovieList.astro";
+import Movie from "../components/Movie.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
+
+const categories = ["trending now","recently watched"]
+
+const movies = [
+    {
+        "name":"Money Heist",
+        "tags":["heist","action","thrill"],
+        "picurl":"money-heist.jpeg",
+        "categories":["trending now"]
+    },
+    {
+        "name":"Stranger Things",
+        "tags":["action","horror"],
+        "picurl":"stranger-things.png",
+        "categories":["trending now","recently watched"],
+    },
+    {
+        "name":"Stranger Things",
+        "tags":["action","horror"],
+        "picurl":"stranger-things.png",
+        "categories":["trending now","recently watched"],
+    },
+    {
+        "name":"Stranger Things",
+        "tags":["action","horror"],
+        "picurl":"stranger-things.png",
+        "categories":["trending now","recently watched"],
+    },
+    {
+        "name":"Stranger Things",
+        "tags":["action","horror"],
+        "picurl":"stranger-things.png",
+        "categories":["trending now","recently watched"],
+    },
+    {
+        "name":"Stranger Things",
+        "tags":["action","horror"],
+        "picurl":"stranger-things.png",
+        "categories":["trending now","recently watched"],
+    },
+    
+    
+]
+
+---
+<ContentLayout title="Netflix-Explore">
+    <NavBar slot="header" logoname="Netflix"  />
+    <ContentWrapper slot="header">
+    </ContentWrapper>
+
+    <ContentWrapper slot="content">
+        {categories.map(category=>(
+            <MovieList category={category}>
+                {movies.map(movie=>(
+                movie.categories.indexOf(category)!=-1?<Movie name={movie.name} tags={movie.tags} picurl={movie.picurl}/>:""
+                ))}
+            </MovieList>
+        ))}
+    </ContentWrapper>
+
+</ContentLayout>
+
+<style>
+    body{
+        background-color: black;
+    }
+</style>
