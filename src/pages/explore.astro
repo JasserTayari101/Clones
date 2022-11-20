@@ -5,6 +5,7 @@ import ContentWrapper from "../components/ContentWrapper.astro";
 import MovieList from "../components/MovieList.astro";
 import Movie from "../components/Movie.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
+import Footer from "../components/Footer.astro";
 
 const categories = ["trending now","recently watched"]
 
@@ -65,6 +66,8 @@ const movies = [
         ))}
     </ContentWrapper>
 
+    <Footer slot="footer" />
+    
 </ContentLayout>
 
 <style>

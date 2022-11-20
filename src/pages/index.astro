@@ -6,6 +6,7 @@ import ContentWrapper from "../components/ContentWrapper.astro";
 import IndexPiece from "../components/IndexPiece.astro";
 import SignUp from "../components/SignUp.astro";
 import DropDown from "../components/DropDown.astro";
+import Footer from "../components/Footer.astro";
 const pieces = [
     {
         "title":"Enjoy on your TV.",
@@ -67,9 +68,9 @@ for(let i=0;i<pieces.length;i++)
             ))}
         </IndexPiece>
     </ContentWrapper>
-    <ContentWrapper slot="footer">
-        © <time class="time-now"></time> Netflix. All rights reserved.
-    </ContentWrapper>
+    
+    <Footer slot="footer" />
+    
 </IndexLayout>
 
 <script>
